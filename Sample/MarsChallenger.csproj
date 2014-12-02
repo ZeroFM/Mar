@@ -1,0 +1,121 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C7B4E12-3391-4834-948C-A89B8E0097F4}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Microsoft.Robotics.RoboChamps.MarsChallenger.Y2009.M02</AssemblyName>
+    <RootNamespace>Microsoft.Robotics.RoboChamps.MarsChallenger</RootNamespace>
+    <AssemblyOriginatorKeyFile>C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\samples\mrisamples.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <SignAssembly>true</SignAssembly>
+    <OutputType>Library</OutputType>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;INSTRUMENTED</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\bin\</OutputPath>
+    <DefineConstants>TRACE;INSTRUMENTED</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Dss.Runtime.Proxy, Version=2.0.913.0">
+      <SpecificVersion>false</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Dss.Runtime, Version=2.0.913.0">
+      <SpecificVersion>false</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Robotics.RoboChamps.MarsComLink.Y2009.M02.Proxy, Version=0.0.0.0, Culture=neutral, PublicKeyToken=12773afd9b48daf5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Robotics.RoboChamps.MarsSpectrometer.Y2009.M02.Proxy, Version=0.0.0.0, Culture=neutral, PublicKeyToken=12773afd9b48daf5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Ccr.Core, Version=2.0.913.0">
+      <SpecificVersion>false</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Dss.Base, Version=2.0.913.0">
+      <SpecificVersion>false</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RoboticsCommon.proxy, Version=2.0.913.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SimplySim.Robotics.PanTilt.Y2009.M02.Proxy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=12773afd9b48daf5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="StereoVisionType.cs" />
+    <Compile Include="StereoVision.cs" />
+    <Compile Include="CommonLib.cs" />
+    <Compile Include="ImageProcessingTypes.cs" />
+    <Compile Include="ImageProcessing.cs" />
+    <Compile Include="MarsChallenger.cs" />
+    <Compile Include="MarsChallengerTypes.cs" />
+    <AppDesigner Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup Condition="'$(DelaySign)'!=''">
+    <ProxyDelaySign>/delaysign+</ProxyDelaySign>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>"C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\bin\DssProxy.exe" /dll:"$(TargetPath)" /proxyprojectpath:"$(ProjectDir)Proxy " /keyfile:"$(AssemblyOriginatorKeyFile)" $(ProxyDelaySign) $(CompactFrameworkProxyGen) /binpath:". " @(ReferencePath->'/referencepath:"%(RootDir)%(Directory) "', ' ')</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>$(MSRDSRoot)\bin</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartWorkingDirectory>$(MSRDSRoot)</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(MSRDSRoot)\bin\dsshost.exe</StartProgram>
+    <StartArguments>-port:50000 -tcpport:50001 -manifest:"$(ProjectDir)MarsChallenger.manifest.xml"</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartWorkingDirectory>$(MSRDSRoot)</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(MSRDSRoot)\bin\dsshost.exe</StartProgram>
+    <StartArguments>-port:50000 -tcpport:50001 -manifest:"$(ProjectDir)MarsChallenger.manifest.xml"</StartArguments>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,4 @@
+comlink: 1000
+frontcam: 228
+rearcam: 256
+vision: 225

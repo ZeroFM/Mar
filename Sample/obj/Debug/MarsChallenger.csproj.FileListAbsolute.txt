@@ -1,0 +1,7 @@
+C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\bin\Microsoft.Robotics.RoboChamps.MarsChallenger.Y2009.M02.dll
+C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\bin\Microsoft.Robotics.RoboChamps.MarsChallenger.Y2009.M02.pdb
+C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\RoboChamps\Mars\Sample\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\RoboChamps\Mars\Sample\obj\Debug\Microsoft.Robotics.RoboChamps.MarsChallenger.Y2009.M02.dll
+C:\Users\zerolin\Microsoft Robotics Dev Studio 2008\RoboChamps\Mars\Sample\obj\Debug\Microsoft.Robotics.RoboChamps.MarsChallenger.Y2009.M02.pdb
+E:\zero.lin\imaginecup2009\zero.lin final\Mars\Sample\obj\Debug\Microsoft.Robotics.RoboChamps.MarsChallenger.Y2009.M02.dll
+E:\zero.lin\imaginecup2009\zero.lin final\Mars\Sample\obj\Debug\Microsoft.Robotics.RoboChamps.MarsChallenger.Y2009.M02.pdb

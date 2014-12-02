@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<Manifest xmlns:mars="http://www.robochamps.com/environments/2009/02/mars.html"
+          xmlns:this="urn:uuid:99623f54-e350-411e-ba7f-d2542f48d25d"
+          xmlns:dssp="http://schemas.microsoft.com/xw/2004/10/dssp.html"
+          xmlns="http://schemas.microsoft.com/xw/2004/10/manifest.html"
+          xmlns:simcommon="http://schemas.microsoft.com/robotics/2006/04/simulation.html">
+  <CreateServiceList>
+    
+    <!-- Environment -->
+    
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/environments/2009/02/mars.html</dssp:Contract>
+      <dssp:PartnerList />
+      <Name>this:MarsScene</Name>
+    </ServiceRecordType>
+    
+    
+    <!-- Drive -->
+    
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/entity/2009/02/marsroverdrive.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/MarsRoverEntity</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:MarsRoverDrive</Name>
+    </ServiceRecordType>
+
+    <!-- Head Acuators -->
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/entity/2009/02/marsroverpantilt.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/MarsRoverEntity</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:MarsRoverHead</Name>
+    </ServiceRecordType>
+
+    <!-- Webcams -->
+
+    <ServiceRecordType>
+      <dssp:Contract>http://schemas.tempuri.org/2006/09/simulatedwebcam.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/pancam</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:PanCam</Name>
+    </ServiceRecordType>
+
+    <ServiceRecordType>
+      <dssp:Contract>http://schemas.tempuri.org/2006/09/simulatedwebcam.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/navcam</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:NavCam</Name>
+    </ServiceRecordType>
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/entity/2009/02/marssimulatedwebcam.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/fronthazcam</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:FrontHazCam</Name>
+    </ServiceRecordType>
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/entity/2009/02/marssimulatedwebcam.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/rearhazcam</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:RearHazCam</Name>
+    </ServiceRecordType>
+    
+    <!-- Com Link -->
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/sensors/2009/02/marscomlink.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/MarsRoverEntity</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:ComLink</Name>
+    </ServiceRecordType>
+    
+    <!-- Spectrometer -->
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/sensors/2009/02/marsspectrometer.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/MarsRoverEntity</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:Spectro</Name>
+    </ServiceRecordType>
+
+    <!-- Arm -->
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.simplysim.net/robotics/2009/02/simulatedarticulatedarm.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Service>http://localhost/MarsRoverEntity</dssp:Service>
+          <dssp:Name>simcommon:Entity</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:MarsRoverArm</Name>
+    </ServiceRecordType>
+
+    <!-- Referee -->
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/referee/2009/02/mars.html</dssp:Contract>
+      <dssp:Service>http://localhost/marsreferee</dssp:Service>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/environments/2009/02/mars.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:Environment</dssp:Name>
+          <dssp:ServiceName>this:MarsScene</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/sensors/2009/02/marscomlink.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:ComLink</dssp:Name>
+          <dssp:ServiceName>this:ComLink</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/sensors/2009/02/marsspectrometer.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:Spectro</dssp:Name>
+          <dssp:ServiceName>this:Spectro</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/webcamservice.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:PanCam</dssp:Name>
+          <dssp:ServiceName>this:PanCam</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/webcamservice.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:NavCam</dssp:Name>
+          <dssp:ServiceName>this:NavCam</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/webcamservice.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:FrontCam</dssp:Name>
+          <dssp:ServiceName>this:FrontHazCam</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/webcamservice.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:RearCam</dssp:Name>
+          <dssp:ServiceName>this:RearHazCam</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/drive.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:Drive</dssp:Name>
+          <dssp:ServiceName>this:MarsRoverDrive</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.simplysim.net/robotics/actuators/2009/02/pantilt.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:Head</dssp:Name>
+          <dssp:ServiceName>this:MarsRoverHead</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/2006/06/articulatedarm.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/referee/2009/02/mars.html">q1:Arm</dssp:Name>
+          <dssp:ServiceName>this:MarsRoverArm</dssp:ServiceName>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:Referee</Name>
+    </ServiceRecordType>
+
+    <!-- Dashboard -->
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/dashboard/2009/02/mars.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/referee/2009/02/mars.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name xmlns:q1="http://www.robochamps.com/dashboard/2009/02/mars.html">q1:Referee</dssp:Name>
+          <dssp:ServiceName>this:Referee</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/dashboard/2009/02/mars.html</dssp:Contract>
+          <dssp:Service>Mars.config.xml</dssp:Service>
+          <dssp:PartnerList />
+          <dssp:Name>dssp:StateService</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:Dashboard</Name>
+    </ServiceRecordType>
+
+
+  </CreateServiceList>
+</Manifest>

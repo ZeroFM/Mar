@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<Manifest xmlns:challenger="http://www.robochamps.com/2009/02/marschallenger.html"
+          xmlns:processor="http://www.robochamps.com/2009/02/marschallenger/imageprocessing.html"
+	  xmlns:stereovision="http://www.robochamps.com/2009/02/marschallenger/stereovision.html"
+          xmlns:this="urn:uuid:248a1140-46fe-4778-b2fc-9e33e6a69e3c"
+          xmlns:dssp="http://schemas.microsoft.com/xw/2004/10/dssp.html"
+          xmlns="http://schemas.microsoft.com/xw/2004/10/manifest.html">
+  <CreateServiceList>
+
+    <!-- Camera Processors -->
+        
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/2009/02/marschallenger/stereovision.html</dssp:Contract>
+      <dssp:Service>http://localhost/stereovision</dssp:Service>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/webcamservice.html</dssp:Contract>
+          <dssp:Service>PanCam</dssp:Service>
+          <dssp:Name>stereovision:PanCamera</dssp:Name>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/webcamservice.html</dssp:Contract>
+          <dssp:Service>NavCam</dssp:Service>
+          <dssp:Name>stereovision:NavCamera</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:StereoVision</Name>
+    </ServiceRecordType>
+ 
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/2009/02/marschallenger/imageprocessing.html</dssp:Contract>
+      <dssp:Service>http://localhost/frontcamprocessor</dssp:Service>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/webcamservice.html</dssp:Contract>
+          <dssp:Service>FrontCam</dssp:Service>
+          <dssp:Name>processor:Camera</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:FrontCamProcessor</Name>
+    </ServiceRecordType>
+
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/2009/02/marschallenger/imageprocessing.html</dssp:Contract>
+      <dssp:Service>http://localhost/rearcamprocessor</dssp:Service>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/webcamservice.html</dssp:Contract>
+          <dssp:Service>RearCam</dssp:Service>
+          <dssp:Name>processor:Camera</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:RearCamProcessor</Name>
+    </ServiceRecordType>
+    
+    <!-- Challenger -->
+    
+    <ServiceRecordType>
+      <dssp:Contract>http://www.robochamps.com/2009/02/marschallenger.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/sensors/2009/02/marscomlink.html</dssp:Contract>
+          <dssp:Service>ComLink</dssp:Service>
+          <dssp:Name>challenger:ComLink</dssp:Name>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/sensors/2009/02/marsspectrometer.html</dssp:Contract>
+          <dssp:Service>Spectro</dssp:Service>
+          <dssp:Name>challenger:Spectro</dssp:Name>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/2009/02/marschallenger/stereovision.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name>challenger:StereoVision</dssp:Name>
+          <dssp:ServiceName>this:StereoVision</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/2009/02/marschallenger/imageprocessing.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name>challenger:FrontCamProcessor</dssp:Name>
+          <dssp:ServiceName>this:FrontCamProcessor</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.robochamps.com/2009/02/marschallenger/imageprocessing.html</dssp:Contract>
+          <dssp:PartnerList />
+          <dssp:Name>challenger:RearCamProcessor</dssp:Name>
+          <dssp:ServiceName>this:RearCamProcessor</dssp:ServiceName>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://www.simplysim.net/robotics/actuators/2009/02/pantilt.html</dssp:Contract>
+          <dssp:Service>Head</dssp:Service>
+          <dssp:Name>challenger:Head</dssp:Name>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/robotics/2006/05/drive.html</dssp:Contract>
+          <dssp:Service>Drive</dssp:Service>
+          <dssp:Name>challenger:Drive</dssp:Name>
+        </dssp:Partner>
+        <dssp:Partner>
+          <dssp:Contract>http://schemas.microsoft.com/2006/06/articulatedarm.html</dssp:Contract>
+          <dssp:Service>Arm</dssp:Service>
+          <dssp:Name>challenger:Arm</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:Challenger</Name>
+    </ServiceRecordType>
+
+  </CreateServiceList>
+</Manifest>
